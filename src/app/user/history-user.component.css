@@ -1,3 +1,7 @@
+body{
+  height: 100rem;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -52,6 +56,8 @@ form {
   /* Add padding to containers */
   .container {
     padding: 16px;
+    position: center;
+    width: 50rem;
   }
   
   /* The "Forgot password" text */
@@ -66,7 +72,5 @@ form {
       display: block;
       float: none;
     }
-    .cancelbtn {
-      width: 100%;
-    }
+   
   }

@@ -47,6 +47,8 @@ img.wolf {
 /* Add padding to containers */
 .container {
   padding: 16px;
+  position: center;
+    width: 50rem;
 }
 
 
