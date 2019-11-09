@@ -17,9 +17,8 @@ import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
 
 
-
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({ 
@@ -40,6 +39,9 @@ import { SignInComponent } from './userSignIn/sign-in.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
