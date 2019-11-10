@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { HttpClient, HttpParams, HttpResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs'
+import { map, catchError } from "rxjs/operators";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,7 @@ export class LoginComponent implements OnInit {
     
   }
 
-  data = {};
+  
   formSubmit(){
   
     var user = {
@@ -23,18 +25,25 @@ export class LoginComponent implements OnInit {
       password : this.form.get('password').value
     }
 
-    const httpOptions: { headers; observe; } = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-      }),
-      observe: 'response'
-    };
-
+    const hdr = new HttpHeaders().set('Content-Type', 'application/json')
+      
     console.log(user)
 
-    this.http.post('http://localhost:8080/login', JSON.stringify(user), httpOptions).subscribe(
-      (response: HttpResponse<any>) => console.log(response.headers.get('Authorization')),
-      (error) => console.log(error)
+    this.http.post<HttpResponse<any>>('http://localhost:8080/login', user, {headers: hdr, observe : "response"})
+    .pipe(
+      map(response => {
+        console.log(response.headers.get("authorization"))
+        return response.body
+      })
+    )
+    .subscribe(response => {
+      console.log(response)
+    },
+
+    error => {
+      console.log("error ", error)
+    }
+    
     )
 
   }
