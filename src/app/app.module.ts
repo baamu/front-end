@@ -46,15 +46,13 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-=======
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
->>>>>>> 75eedf60401cf1c305524541b9c1ba5c3113d2ad
+
   ],
   providers: [],
   bootstrap: [AppComponent]
