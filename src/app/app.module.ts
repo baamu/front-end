@@ -24,9 +24,8 @@ import {MatNativeDateModule} from '@angular/material';
  
 
 
-
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({ 
@@ -47,9 +46,15 @@ import {MatNativeDateModule} from '@angular/material';
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+=======
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+>>>>>>> 75eedf60401cf1c305524541b9c1ba5c3113d2ad
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form action="action_page.php" method="post">
   <div class="imgcontainer">
     <img src="assets/images/login.jpg" alt="Login" class="login">
@@ -21,3 +22,40 @@
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
 </form>
+=======
+<body>
+  <div class="container-fluid"  >
+    <h1>LOGIN</h1>
+    <form [formGroup]="form" (ngSubmit) = "formSubmit()">
+        
+      <!-- <div [ngStyle]="{background: 'url(./assets/images/'+ bc.jpg+')'}"></div> -->
+     
+        <div class="imgcontainer">
+            <img src="assets/images/login.jpg" alt="Login" class="login">
+          </div>
+      
+
+        <div class = "form-group">
+            <label>User Name</label>
+            <input type="text" class="form-control" formControlName="email">
+        </div>
+        <div class = "form-group">
+            <label>Password</label> 
+            <input type="password" class="form-control" formControlName="password">
+        </div>
+        
+        
+         <br/>
+          <button class="btn btn-primary" type="submit"> Login </button>
+          <button class="btn btn-primary" type="reset"> Clear </button>
+         
+        
+         
+        
+         
+        
+    </form>
+    </div>
+      
+    </body>
+>>>>>>> 75eedf60401cf1c305524541b9c1ba5c3113d2ad
