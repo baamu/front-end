@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import{NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -15,6 +18,10 @@ import { LocalRepositoryUserComponent } from './user/local-repository-user.compo
 import { HistoryUserComponent } from './user/history-user.component';
 import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
+
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
+ 
 
 
 
@@ -40,6 +47,9 @@ import { SignInComponent } from './userSignIn/sign-in.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
