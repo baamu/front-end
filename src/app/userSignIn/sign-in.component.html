@@ -5,23 +5,31 @@
           <hr>
       
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <input class="form-control" type="text" placeholder="Enter Email" formControlName="email" required>
 
           <label for="name"><b>Name with initials</b></label>
-          <input type="text" placeholder="Enter Name" name="name" required>
+          <input class="form-control" type="text" placeholder="Enter Name" formControlName="name" required>
 
-          <label for="nic"><b>NIC</b></label>
-          <input type="text" placeholder="Enter NIC" name="nic" required>
+          <label for="name"><b>User Name</b></label>
+          <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" required>
+
+          <label for="dob"><b>Date Of Birth</b></label>
+          <input class="form-control" type="text" placeholder="YYYY/MM/DD" formControlName="dob" required>
+
+
+          <label for="nic"><b>National Identity Card</b></label>
+          <input class="form-control" type="text" placeholder="Enter NIC" formControlName="nic" required>
       
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="password"><b>Password</b></label>
+          <input class="form-control" type="password" placeholder="Enter Password" formControlName="password" required>
       
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <label for="password-repeat"><b>Repeat Password</b></label>
+          <input class="form-control" type="password" placeholder="Repeat Password" formControlName="password-repeat" required>
           
           <label>
             <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
           </label>
+
       
           <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       
