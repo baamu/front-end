@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { map } from "rxjs/operators";
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,39 +11,33 @@ export class SignInComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder, private http: HttpClient) { }
+  constructor(public fb: FormBuilder, private appService: AppService) { }
 
   formSubmit(){
   
-    var user = {
-      email : this.form.get('email').value,
-      username : this.form.get('username').value,
-      name : this.form.get('name').value,
-      dob : this.form.get('dob').value,
-      nic : this.form.get('nic').value,
-      password : this.form.get('password').value
-    }
+    var email:string =this.form.get('email').value;
+    var username:string = this.form.get('username').value;
+    var name:string = this.form.get('name').value;
+    var dob:string = this.form.get('dob').value;
+    var nic:string = this.form.get('nic').value;
+    var password:string = this.form.get('password').value;
 
-    const hdr = new HttpHeaders().set('Content-Type', 'application/json')
-      
-    console.log(user)
+    var repass:string = this.form.get('repass').value;
 
-    this.http.post<HttpResponse<any>>('http://localhost:8080/api/public/user/register', user, {headers: hdr, observe : "response"})
-    .pipe(
-      map(response => {
-        // console.log(response.headers.get("authorization"))
-        return response.body
-      })
-    )
-    .subscribe(response => {
-      console.log(response)
-    },
+    this.appService.register(email,name,username,nic,dob,password)
+      .subscribe(response => {
+          console.log(response)
+          alert("Verification Email Sent! Verify account and login!")
+        },
 
-    error => {
-      console.log("error ", error)
-    }
-    
-    )
+        error => {
+          console.log("error ", error)
+          alert("Registration Failed!")
+          
+        }
+      );
+
+      this.form.reset();
 
   }
 

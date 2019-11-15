@@ -1,4 +1,4 @@
-<form action="action_page.php" method="post">
+<form [formGroup]="form" (ngSubmit) = "formSubmit()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light, navbar navbar-dark bg-primary">
         
         <a class="navbar-brand">Night Wolf</a>
@@ -11,22 +11,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="SearchUser">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="searchuser">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                    <a class="nav-link" href="GenerateReport">Report <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="generatereport">Report <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                    <a class="nav-link" href="AddDownload">Add Download <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="add">Add Download <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                    <a class="nav-link" href="View">View <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="view">View <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                     <a class="nav-link" href="LocalRerpository">Local Repository <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                    <a class="nav-link" href="History">History <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="history">History <span class="sr-only">(current)</span></a>
             </li>
           </ul>
          
@@ -44,8 +44,8 @@
     
       
         <div class="container">
-          <input type="text" placeholder="Paste URL" name="add" required>
-          <button type="button">Add</button>
+          <input type="text" placeholder="Paste URL" formControlName="url" required>
+          <button class="btn btn-primary" type="submit">Add</button>
         </div>
 
         
