@@ -19,10 +19,6 @@ import { HistoryUserComponent } from './user/history-user.component';
 import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
 
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatInputModule} from '@angular/material';
- 
-
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -47,8 +43,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
