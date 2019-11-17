@@ -23,6 +23,8 @@ import { SignInComponent } from './userSignIn/sign-in.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { StorageServiceModule } from 'angular-webstorage-service'
+
 
 @NgModule({ 
   declarations: [
@@ -45,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StorageServiceModule
 
   ],
   providers: [],
