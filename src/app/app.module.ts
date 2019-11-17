@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import{NoopAnimationsModule} from '@angular/platform-browser/animations';
+
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -19,6 +22,8 @@ import { SignInComponent } from './userSignIn/sign-in.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { StorageServiceModule } from 'angular-webstorage-service'
 
 
 @NgModule({ 
@@ -39,9 +44,12 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StorageServiceModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

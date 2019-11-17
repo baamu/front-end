@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs'
-import { map, catchError } from "rxjs/operators";
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,38 +12,26 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
+  constructor(public fb: FormBuilder, private appService: AppService, private _router: Router) {
     
   }
-
   
   formSubmit(){
   
-    var user = {
-      email : this.form.get('email').value,
-      password : this.form.get('password').value
-    }
+    var email:string = this.form.get('email').value;
+    var password:string = this.form.get('password').value;
 
-    const hdr = new HttpHeaders().set('Content-Type', 'application/json')
-      
-    console.log(user)
-
-    this.http.post<HttpResponse<any>>('http://localhost:8080/login', user, {headers: hdr, observe : "response"})
-    .pipe(
-      map(response => {
-        console.log(response.headers.get("authorization"))
-        return response.body
-      })
-    )
-    .subscribe(response => {
-      console.log(response)
-    },
-
-    error => {
-      console.log("error ", error)
-    }
-    
-    )
+    this.appService.login(email, password)
+      .subscribe(response => {
+          console.log(response)
+          this._router.navigate(["/add"]);
+        },
+        error => {
+          console.log("error ", error);
+          alert("Login Failed!")
+          this.form.reset();
+        }
+      );
 
   }
 

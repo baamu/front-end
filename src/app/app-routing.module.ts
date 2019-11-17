@@ -12,15 +12,15 @@ import { SearchUserComponent } from './user/search-user.component';
 
 
 const routes: Routes = [
-  {path: 'SearchUser', component: SearchUserComponent},
-  {path: 'View', component: ViewUserComponent},
-  {path: 'AddDownload', component: AddDownloadUserComponent},
-  {path: 'History', component: HistoryUserComponent},
+  {path: 'searchuser', component: SearchUserComponent},
+  {path: 'view', component: ViewUserComponent},
+  {path: 'add', component: AddDownloadUserComponent},
+  {path: 'history', component: HistoryUserComponent},
   {path: 'GenerateReport', component: GenerateReportUserComponent},
-  {path: 'LocalRerpository', component: LocalRepositoryUserComponent},
-  {path: 'Login', component: LoginComponent},
-  {path: 'SignIn', component: SignInComponent},
-  {path: '', redirectTo: 'Searchlinks', pathMatch: 'full'},
+  {path: 'localrerpository', component: LocalRepositoryUserComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignInComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
 
  

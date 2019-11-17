@@ -1,17 +1,18 @@
+
 <body>
-  <div class="container-fluid"  >
+  <div class="container-fluid">
     <h1>LOGIN</h1>
     <form [formGroup]="form" (ngSubmit) = "formSubmit()">
-        
+          
       <!-- <div [ngStyle]="{background: 'url(./assets/images/'+ bc.jpg+')'}"></div> -->
      
         <div class="imgcontainer">
-            <img src="assets/images/login.jpg" alt="Login" class="login">
+            <img src="assets/images/logo_gray_white_nose.png" alt="Login" class="login" height="200px">
           </div>
       
 
         <div class = "form-group">
-            <label>User Name</label>
+            <label>Email</label>
             <input type="text" class="form-control" formControlName="email">
         </div>
         <div class = "form-group">
@@ -21,8 +22,12 @@
         
         
          <br/>
-          <button class="btn btn-primary" type="submit"> Login </button>
-          <button class="btn btn-primary" type="reset"> Clear </button>
+
+         <div id="btn-container">
+            <button class="btn btn-primary" type="submit"> Login </button>
+            <!-- <button class="btn btn-primary" type="reset" id="btn-clear"> Clear </button> -->
+         </div>
+          
          
         
          
@@ -33,3 +38,4 @@
     </div>
       
     </body>
+
