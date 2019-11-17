@@ -1,42 +1,38 @@
-<form [formGroup]="form" (ngSubmit) = "formSubmit()" style="border:1px solid #ccc">
+<form [formGroup]="form" (ngSubmit) = "formSubmit()" style="border:1px solid #ccc" novalidate>
         <div class="container">
           <h1>Sign Up</h1>
-          <h2>git push check</h2>
           <p>Please fill in this form to create an account.</p>
           <hr>
       
           <label for="email"><b>Email</b></label>
-          <input class="form-control" type="text" placeholder="Enter Email" formControlName="email" required>
+          <input class="form-control" type="text" placeholder="Enter Email" formControlName="email" required pattern="^\w+([\.]?\w+)*@\w+([\.,]?\w+)*(\.\w{2,3})+$">
 
           <label for="name"><b>Name with initials</b></label>
-          <input class="form-control" type="text" placeholder="Enter Name" formControlName="name" required>
+          <input class="form-control" type="text" placeholder="Enter Name" formControlName="name" required pattern="[a-zA-Z][a-zA-Z]+">
 
           <label for="name"><b>User Name</b></label>
-          <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" required>
+          <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" required pattern="[A-Za-z0-9_]{1,15}">
 
           <label for="dob"><b>Date Of Birth</b></label>
-          <input class="form-control" type="text" placeholder="YYYY/MM/DD" formControlName="dob" required>
+          <input class="form-control" type="date" placeholder="YYYY/MM/DD" formControlName="dob" required="true">
 
 
           <label for="nic"><b>National Identity Card</b></label>
-          <input class="form-control" type="text" placeholder="Enter NIC" formControlName="nic" required>
+          <input class="form-control" type="text" placeholder="Enter NIC" formControlName="nic" required pattern="[A-Za-z0-9]+">
       
           <label for="password"><b>Password</b></label>
-          <input class="form-control" type="password" placeholder="Enter Password" formControlName="password" required>
+          <input class="form-control" type="password" placeholder="Enter Password" formControlName="password" required pattern="[A-Za-z0-9]{1,15}">
       
           <label for="password-repeat"><b>Repeat Password</b></label>
-          <input class="form-control" type="password" placeholder="Repeat Password" formControlName="repass" required>
+          <input class="form-control" type="password" placeholder="Repeat Password" formControlName="repass" required pattern="[v-V0-9]{1,10}">
           
-          <label>
-            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-          </label>
 
       
           <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       
           <div class="clearfix">
             <button type="reset" class="cancelbtn" value="reset">Clear</button>
-            <button type="submit" class="signupbtn" value="submit">Sign Up</button>
+            <button type="submit" class="signupbtn" value="submit" [disabled]="form.invalid">Sign Up</button>
           </div>
         </div>
       </form>
