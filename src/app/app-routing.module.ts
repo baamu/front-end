@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'localrerpository', component: LocalRepositoryUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignInComponent},
-  {path: '', redirectTo: 'Searchlinks', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
 
  

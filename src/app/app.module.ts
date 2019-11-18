@@ -24,7 +24,11 @@ import {MatNativeDateModule, MatInputModule} from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { StorageServiceModule } from 'angular-webstorage-service'
+
 
 
 @NgModule({ 
@@ -53,7 +57,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StorageServiceModule
+
 
   ],
   providers: [],
