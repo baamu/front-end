@@ -2,13 +2,14 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 let request_headers = new HttpHeaders(
   {
   'Content-Type' : 'application/json'
   }
 );
+
+const BASE_URL = "http://localhost:8080";
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class AppService {
       "password" : password
     }
 
-    return this.http.post('http://localhost:8080/api/public/user/register', user, {headers: request_headers, observe : "response"})
+    return this.http.post(BASE_URL+'/api/public/user/register', user, {headers: request_headers, observe : "response"})
     .pipe(
       map(response => {return response.body})
     );
@@ -41,7 +42,7 @@ export class AppService {
       "password" : password
     }
     
-    return this.http.post("http://localhost:8080/login", user, {headers:request_headers, observe:"response"})
+    return this.http.post(BASE_URL+'login', user, {headers:request_headers, observe:"response"})
     .pipe(
       map(respose => {
          if(respose.ok) {
@@ -72,7 +73,7 @@ export class AppService {
       "url" : url
     }
 
-    return this.http.post("http://localhost:8080/api/public/download/add", payload, {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+    return this.http.post(BASE_URL+'/api/public/download/add', payload, {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
     .pipe(
       map(response => {return response.body})
     )
