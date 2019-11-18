@@ -1,91 +1,103 @@
-/*.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }*/
-  
-/* Bordered form */
-form {
-  /* border: 1px solid #221177; */
-  width: 40%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* padding: 1%; */
+html{
+  height:100%;
+  margin:0;
+  padding:0;
 }
-
-/* Full-width inputs */
-input[type=text], input[type=password] {
-  width: 100%;
-  /* padding: 12px 20px; */
-  /* margin: 0px 0; */
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+body{
+  background-image: url(https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1600/http://techfameplus.com/wp-content/uploads/2016/12/Top-12-Colorful-Abstract-Backgroung-Wallpaper-Poster-Design-10.jpg);
+  background-position:center center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  min-height:100vh;
+  font-family:'Roboto', sans-serif;
 }
-
-/* Set a style for all buttons */
-button {
-  background-color: #4CAF50;
-  color: white;
-  /* padding: 14px 20px; */
-  margin: 5px;
-  border: none;
-  cursor: pointer;
-  width: 30%;
+.app-header{
+  justify-content:space-between;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:2;
+  box-shadow:0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
 }
-
-/* Add a hover effect for buttons */
-button:hover {
-  opacity: 0.8;
+.login-wrapper{
+  height:100%;
 }
-
-/* Extra style for the cancel button (red) */
-#btn-clear {
-  width: 40%;
-  margin-right: auto;
-  /* padding: 10px 18px; */
-  background-color: #f44336;
+.positronx{
+  text-decoration:none;
+  color:#ffffff;
 }
-
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
+.box{
+  width: 320px;
+  height: 420px;
+  position:relative;
+  top:0;
+  opacity:1;
+  float:left;
+  padding:60px 50px 40px 50px;
+  width:100%;
+  background: url(https://img.freepik.com/free-vector/pastel-oil-painting-canvas-background_53876-93729.jpg?size=626&ext=jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  border-radius:10px;
+  transform:scale(1);
+  -webkit-transform:scale(1);
+  -ms-transform:scale(1);
+  z-index:5;
+  max-width:330px;
 }
-
-/* Avatar image */
-img.avatar {
-  width: 20%;
-  border-radius: 30%;
+.avatar{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  top: -15%;
+  left: 31%;
 }
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
+.box.back{
+  transform:scale(.95);
+  -webkit-transform:scale(.95);
+  -ms-transform:scale(.95);
+  top:-20px;
+  opacity:.8;
+  z-index:-1;
 }
-
-/* The "Forgot password" text */
-span.psw {
-  float: right;
-  padding-top: 16px;
+.box a{
+  text-decoration: none;
+  font-size: 14px;
+  color: #6239a8;
 }
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
+.login-wrapper .example-form{
+  min-width:100%;
+  max-width:300px;
+  width:100%;
 }
-
-#btn-container {
-  margin-left: auto;
-  margin-right: auto;
-  /* align-items: center; */
-  text-align: right;
+.login-wrapper .example-full-width,.login-wrapper .btn-block{
+  width:100%;
+}
+.login-wrapper mat-card-header{
+  text-align:center;
+  width:100%;
+  display:block;
+  font-weight:700;
+}
+.login-wrapper mat-card-header mat-card-title{
+  font-size:40px;
+  margin:0;
+}
+.login-wrapper .mat-card{
+  padding:40px 70px 50px;
+}
+.login-wrapper .mat-stroked-button{
+  border:0px;
+  width: 90px;
+  line-height:54px;
+  background: #900c3f;
+}
+.btn-block{
+  font-size: 20px;
+  color: #fff;
+}
+.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix{
+  padding:0.8375em 0;
 }
