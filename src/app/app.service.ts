@@ -42,7 +42,7 @@ export class AppService {
       "password" : password
     }
     
-    return this.http.post(BASE_URL+'login', user, {headers:request_headers, observe:"response"})
+    return this.http.post(BASE_URL+'/login', user, {headers:request_headers, observe:"response"})
     .pipe(
       map(respose => {
          if(respose.ok) {

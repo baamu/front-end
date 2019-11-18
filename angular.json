@@ -46,10 +46,7 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-=======
->>>>>>> 1df8051549ac6aa2ce851ecbefd31487a365e444
               "src/styles.css"
             ],
             "scripts": []
@@ -115,10 +112,7 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-=======
->>>>>>> 1df8051549ac6aa2ce851ecbefd31487a365e444
               "src/styles.css"
             ],
             "scripts": []
@@ -150,11 +144,7 @@
           }
         }
       }
-<<<<<<< HEAD
     }
   },
-=======
-    }},
->>>>>>> 1df8051549ac6aa2ce851ecbefd31487a365e444
   "defaultProject": "ODF"
 }
