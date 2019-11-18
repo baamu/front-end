@@ -8,7 +8,7 @@
           <input class="form-control" type="text" placeholder="Enter Email" formControlName="email" required pattern="^\w+([\.]?\w+)*@\w+([\.,]?\w+)*(\.\w{2,3})+$">
 
           <label for="name"><b>Name with initials</b></label>
-          <input class="form-control" type="text" placeholder="Enter Name" formControlName="name" required pattern="[a-zA-Z][a-zA-Z]+">
+          <input class="form-control" type="text" placeholder="Enter Name" formControlName="name" required pattern="^[A-Za-z][A-Za-z\'\.]+([\ A-Za-z][A-Za-z\']+)*">
 
           <label for="name"><b>User Name</b></label>
           <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" required pattern="[A-Za-z0-9_]{1,15}">
@@ -21,10 +21,10 @@
           <input class="form-control" type="text" placeholder="Enter NIC" formControlName="nic" required pattern="[A-Za-z0-9]+">
       
           <label for="password"><b>Password</b></label>
-          <input class="form-control" type="password" placeholder="Enter Password" formControlName="password" required pattern="[A-Za-z0-9]{1,15}">
+          <input class="form-control" type="password" placeholder="Enter Password" formControlName="password" required pattern="(.){8,15}">
       
           <label for="password-repeat"><b>Repeat Password</b></label>
-          <input class="form-control" type="password" placeholder="Repeat Password" formControlName="repass" required pattern="[v-V0-9]{1,10}">
+          <input class="form-control" type="password" placeholder="Repeat Password" formControlName="repass" required pattern="(.){8,15}">
           
 
       
