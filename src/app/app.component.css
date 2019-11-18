@@ -9,3 +9,15 @@ span{
     background: #1d1033; 
     color: #fff;
 }
+
+.nav-bar-color {
+    background-color: #0a4969 !important;
+}
+
+#brand {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+  
