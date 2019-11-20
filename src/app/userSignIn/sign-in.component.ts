@@ -23,20 +23,20 @@ export class SignInComponent implements OnInit {
     var password:string = this.form.get('password').value;
     
 
-    // var repass:string = this.form.get('repass').value;
+    var repass:string = this.form.get('repass').value;
 
-    // this.appService.register(email,name,username,nic,dob,password)
-    //   .subscribe(response => {
-    //       console.log(response)
-    //       alert("Verification Email Sent! Verify account and login!")
-    //     },
+    this.appService.register(email,name,username,nic,dob,password)
+      .subscribe(response => {
+          console.log(response)
+          alert("Verification Email Sent! Verify account and login!")
+        },
 
-    //     error => {
-    //       console.log("error ", error)
-    //       alert("Registration Failed!")
+        error => {
+          console.log("error ", error)
+          alert("Registration Failed!")
           
-    //     }
-    //   );
+        }
+      );
 
       this.form.reset();
 
