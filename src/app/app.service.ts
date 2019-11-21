@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
-import { of, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 let request_headers = new HttpHeaders(
   {

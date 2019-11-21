@@ -11,12 +11,6 @@ export interface Download {
   completed:string;
 }
 
-export interface TableDataSource {
-  data : Download[];
-}
-
-const ELEMENT_DATA: Download[] = [];
-
 @Component({
   templateUrl: './view-user.component.html',
   styleUrls: ['./view-user.component.css']
@@ -34,18 +28,7 @@ export class ViewUserComponent implements OnInit{
   dataSource : MatTableDataSource<Download[]>;
 
   constructor(private service : AppService) {
-
-    // var d : Download[] = [];
-
-    // this.service.getOnGoingDownloads().subscribe(response => {
-    //   response.forEach(element => {
-    //     d.push(element);
-    //     this.dataSource.push(element)
-    //     console.log(element)
-    //   });
-    // })
-
-    // this.dataSource.push(d);
+    
   }
 
 
