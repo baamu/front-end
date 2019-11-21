@@ -2,6 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { SESSION_STORAGE, WebStorageService } from 'angular-webstorage-service';
+import { of, Observable } from 'rxjs';
 
 let request_headers = new HttpHeaders(
   {
@@ -77,6 +78,22 @@ export class AppService {
     .pipe(
       map(response => {return response.body})
     )
+
+  }
+
+  getOnGoingDownloads() : Observable<any> {
+    if(!this.storage.get("token")) {
+      console.log("no auth header is set")
+      return null;
+    } else {
+      console.log("Token " + this.storage.get('token'));
+    }
+    
+    return this.http.get<Array<any>>(BASE_URL+'/api/public/download/getall',{headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+    .pipe(
+      map(response => {return response.body;})
+    )
+    ;
 
   }
 
