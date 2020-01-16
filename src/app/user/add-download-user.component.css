@@ -6,8 +6,8 @@ form {
   }
   
   /* Full-width inputs */
-  input[type=text] {
-    width: 100%;
+  /*input[type=text] {
+    width: 98%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -16,20 +16,20 @@ form {
   }
   
   /* Set a style for all buttons */
-  button {
-    background-color: #4CAF50;
+  /*button {
+    background-color: rgb(31, 99, 161);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 2%;
   }
   
   /* Add a hover effect for buttons */
-  button:hover {
+  /*button:hover {
     opacity: 0.8;
-  }
+  }*/
   
 
   /* Center the  image inside this container */
@@ -60,3 +60,27 @@ form {
     }
     
   }
+
+
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.example-card {
+  max-width: 250px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/images/black_pink.jpg');
+  background-size: cover;
+}
+
+
+
+
+
+

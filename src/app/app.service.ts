@@ -10,7 +10,7 @@ let request_headers = new HttpHeaders(
   }
 );
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "http://3.81.95.4:8080";
 
 @Injectable({
   providedIn: 'root'

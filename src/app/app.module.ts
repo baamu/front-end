@@ -19,7 +19,7 @@ import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatInputModule} from '@angular/material';
+import {MatNativeDateModule, MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
  
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,7 +27,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { StorageServiceModule } from 'angular-webstorage-service'
+import { StorageServiceModule } from 'angular-webstorage-service';
+
+
 
 
 
@@ -58,7 +60,9 @@ import { StorageServiceModule } from 'angular-webstorage-service'
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    StorageServiceModule
+    StorageServiceModule,
+    MatCardModule,
+    MatButtonModule
 
 
   ],
