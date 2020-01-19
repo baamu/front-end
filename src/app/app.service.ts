@@ -89,7 +89,7 @@ export class AppService {
       console.log("Token " + this.storage.get('token'));
     }
     
-    return this.http.get<Array<any>>(BASE_URL+'/api/public/download/getall',{headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+    return this.http.get<Array<any>>(BASE_URL+'/api/public/download/get-all',{headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
     .pipe(
       map(response => {return response.body;})
     );
@@ -118,10 +118,34 @@ export class AppService {
       console.log("Token " + this.storage.get('token'));
     }
 
-    this.http.get(BASE_URL+"/api/public/repository/get?id="+id);
+    this.http.get<BlobPart>(BASE_URL+"/api/public/repository/get?id="+id, {headers:request_headers.append("Authorization",this.storage.get("token")), responseType : "blob" as "json"}).subscribe((data: Blob) => {
+      let blob = new Blob([data], {type:data.type});
+      
+      var down = window.URL.createObjectURL(data);
+      // var link = document.createElement("a");
+      // link.href = down;
+      // link.download = "test.zip";
+      
+      // link.click;
+      window.open(down);
+    })
   }
 
+  getFilesFromRepo(repoName:string, page:number) : Observable<any> {
+    if(!this.storage.get("token")) {
+      console.log("no auth header is set")
+      return null;
+    } else {
+      console.log("Token " + this.storage.get('token'));
+    }
 
+    let url = BASE_URL+"/api/public/repository/"+repoName+"?page="+page;
+
+    return this.http.get<Array<any>>(url, {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+              .pipe(
+                map(response => {return response.body;})
+              );
+  }
 
 
 }

@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'add', component: AddDownloadUserComponent},
   {path: 'history', component: HistoryUserComponent},
   {path: 'GenerateReport', component: GenerateReportUserComponent},
-  {path: 'localrerpository', component: LocalRepositoryUserComponent},
+  {path: 'localrepository', component: LocalRepositoryUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignInComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
