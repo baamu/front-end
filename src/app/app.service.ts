@@ -12,6 +12,8 @@ let request_headers = new HttpHeaders(
 
 const BASE_URL = "http://3.81.95.4:8080";
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -145,6 +147,14 @@ export class AppService {
               .pipe(
                 map(response => {return response.body;})
               );
+  }
+
+  setRepoName(repo: string) : void {
+    this.storage.set("repo", repo);
+  }
+
+  getRepoName(): string {
+    return this.storage.get("repo");
   }
 
 
