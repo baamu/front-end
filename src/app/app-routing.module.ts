@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AddDownloadUserComponent } from './user/add-download-user.component';
@@ -16,8 +16,8 @@ const routes: Routes = [
   {path: 'view', component: ViewUserComponent},
   {path: 'add', component: AddDownloadUserComponent},
   {path: 'history', component: HistoryUserComponent},
-  {path: 'GenerateReport', component: GenerateReportUserComponent},
-  {path: 'localrerpository', component: LocalRepositoryUserComponent},
+  {path: 'generatereport', component: GenerateReportUserComponent},
+  {path: 'localrepository', component: LocalRepositoryUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignInComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -31,10 +31,9 @@ const routes: Routes = [
  
 })
 export class AppRoutingModule { 
-  static forRoot(): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
-    throw new Error("Method not implemented.");
-  }
-  
+  // static forRoot(): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  //   throw new Error("Method not implemented.");
+  // }
 }
 
 export const routingComponents = [LoginComponent, SignInComponent]

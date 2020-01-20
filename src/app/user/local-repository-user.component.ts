@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-local-repository-user',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocalRepositoryUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : AppService, private router: Router) {
+    
+  }
 
   ngOnInit() {
+
+  }
+
+  setRepo(repoName:string) {
+    this.service.setRepoName(repoName);
+    console.log(repoName);
+    this.router.navigate(["/generatereport"]);
   }
 
 }

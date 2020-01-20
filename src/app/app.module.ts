@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import{NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -19,7 +18,7 @@ import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
+import {MatNativeDateModule, MatCardModule, MatButtonModule} from '@angular/material';
  
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { StorageServiceModule } from 'angular-webstorage-service';
+import { AppService } from './app.service';
 
 
 
@@ -66,7 +66,7 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 
 
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
