@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppService } from '../app.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-local-repository-user',
@@ -8,7 +9,7 @@ import { AppService } from '../app.service';
 })
 export class LocalRepositoryUserComponent implements OnInit {
 
-  constructor(private service : AppService) {
+  constructor(private service : AppService, private router: Router) {
     
   }
 
@@ -16,8 +17,10 @@ export class LocalRepositoryUserComponent implements OnInit {
 
   }
 
-  setRepo(repoName) {
+  setRepo(repoName:string) {
     this.service.setRepoName(repoName);
+    console.log(repoName);
+    this.router.navigate(["/generatereport"]);
   }
 
 }

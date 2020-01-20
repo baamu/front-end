@@ -24,15 +24,19 @@ export class AddDownloadUserComponent implements OnInit {
     
     var url:string = this.form.get('url').value;
 
+    console.log(url);
+
     try {
       this.appService.addDownload(url)
-      .subscribe(response => {
+      .subscribe((response:JSON) => {
           console.log(response)
-          alert("Success!")
+          let res = JSON.stringify(response).split(":")[1];
+          alert(res.substring(1, res.length-2));
         },
 
         error => {
-          console.log("error ", error)
+          console.log("error ", error);
+          alert(error);
         }
       );
     }catch (e) {

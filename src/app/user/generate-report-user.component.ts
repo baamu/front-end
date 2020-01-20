@@ -36,8 +36,6 @@ export class GenerateReportUserComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.service.setRepoName("other");
     let repo = this.service.getRepoName();
 
     this.service.getFilesFromRepo(repo,1).pipe(
@@ -64,9 +62,28 @@ export class GenerateReportUserComponent implements OnInit {
   }
 
 
-  copyFile(id) {
+  copyFile(id, fileName) {
     console.log(id);
-    this.service.copyFromRepo(id);
+    this.service.copyFromRepo(id).subscribe((data: Blob) => {
+      this.downloadFile(data, fileName);
+
+    });
+  }
+
+  async downloadFile(data: Blob, fileName:string) {
+    let blob = new Blob([data], {type:data.type});
+      
+      // console.log("Type : ", data.type);
+      // console.log("Blob : ", blob);
+
+      var down = window.URL.createObjectURL(blob);
+      var link = document.createElement("a");
+      link.href = down;
+      link.target = "_blank";
+      link.download = fileName;
+      
+      link.click();
+      // window.open(down);
   }
 
 }

@@ -27,7 +27,7 @@
 
     <ng-container matColumnDef="download">
       <th mat-header-cell *matHeaderCellDef>  </th>
-      <td mat-cell download-cell *matCellDef="let element" (click)="copyFile(element.id)"> <img [src]="element.image"> </td>
+      <td mat-cell download-cell *matCellDef="let element" (click)="copyFile(element.id, element.name)"> <img [src]="element.image"> </td>
     </ng-container>
 
 

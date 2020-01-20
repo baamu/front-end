@@ -10,7 +10,11 @@ let request_headers = new HttpHeaders(
   }
 );
 
-const BASE_URL = "http://3.81.95.4:8080";
+let request_headers2 = new HttpHeaders(
+  {}
+);
+
+const BASE_URL = "http://localhost:8080";
 
 
 
@@ -112,7 +116,7 @@ export class AppService {
     );
   }
 
-  copyFromRepo(id) {
+  copyFromRepo(id){
     if(!this.storage.get("token")) {
       console.log("no auth header is set")
       return null;
@@ -120,18 +124,10 @@ export class AppService {
       console.log("Token " + this.storage.get('token'));
     }
 
-    this.http.get<BlobPart>(BASE_URL+"/api/public/repository/get?id="+id, {headers:request_headers.append("Authorization",this.storage.get("token")), responseType : "blob" as "json"}).subscribe((data: Blob) => {
-      let blob = new Blob([data], {type:data.type});
-      
-      var down = window.URL.createObjectURL(data);
-      // var link = document.createElement("a");
-      // link.href = down;
-      // link.download = "test.zip";
-      
-      // link.click;
-      window.open(down);
-    })
+    return this.http.get(BASE_URL+"/api/public/repository/get?id="+id, {headers:request_headers.append("Authorization",this.storage.get("token")), reportProgress: true, responseType: 'blob'});
   }
+
+
 
   getFilesFromRepo(repoName:string, page:number) : Observable<any> {
     if(!this.storage.get("token")) {

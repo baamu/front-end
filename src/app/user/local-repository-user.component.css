@@ -1,4 +1,6 @@
-
+h1 {
+  margin-bottom: 70px;
+}
   
 /* Bordered form */
 form {
@@ -62,6 +64,14 @@ form {
   
   .mat-column-download:hover {
     cursor: pointer;
+  }
+
+  .mat-card-image {
+    margin-left: 20%;
+    padding: 10%;
+    cursor: pointer;
+    width: 130px;
+    height: 150px;
   }
   
   /* Change styles for span and cancel button on extra small screens */
