@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AddDownloadUserComponent } from './user/add-download-user.component';
-import { LocalRepositoryUserComponent } from './user/local-repository-user.component';
+import {LocalRepositoryUserComponent} from './user/local-repository-user.component';
 import { HistoryUserComponent } from './user/history-user.component';
 import { GenerateReportUserComponent } from './user/generate-report-user.component';
 import {ViewUserComponent } from './user/view-user.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   {path: 'add', component: AddDownloadUserComponent},
   {path: 'history', component: HistoryUserComponent},
   {path: 'GenerateReport', component: GenerateReportUserComponent},
-  {path: 'localrerpository', component: LocalRepositoryUserComponent},
+  {path: 'localrepository', component: LocalRepositoryUserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignInComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
