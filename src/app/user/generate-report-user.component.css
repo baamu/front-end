@@ -1,52 +1,36 @@
-/*.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }*/
-  
+h1 {
+  font-family:'Odibee Sans', cursive;
+  padding-top: 2%;
+  padding-left: 2%;
+}
 
-  
-/* Bordered form */
-form {
-    border: 3px solid #f1f1f1;
-  }
-  
+table {
+  width: 100%;
+}
 
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    align-content: center;
-  }
-  
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 0.8;
-  }
-  
+th {
+  font-size: 15px;
+  font-weight: bold;
+}
 
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-  }
-  
-  /* Avatar image */
-  img.wolf {
-    width: 10%;
-    border-radius: 50%;
-  }
-  
-  /* Add padding to containers */
-  .container {
-    padding: 16px;
-    position: center;
-    width: 50rem;
-  }
+.mat-row:hover {
+  background-color: #909090;
+}
+
+.mat-row:hover .mat-cell {
+    color: whitesmoke;
+}
+
+.mat-footer-row:first-child td {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mat-form-field {
+  font-size: 18px;
+  width: 100%;
+  padding: 0 2%;
+}
+
+.mat-column-download:hover {
+  cursor: pointer;
+}

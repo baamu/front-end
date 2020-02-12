@@ -10,7 +10,13 @@ let request_headers = new HttpHeaders(
   }
 );
 
+let request_headers2 = new HttpHeaders(
+  {}
+);
+
 const BASE_URL = "http://localhost:8080";
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -89,7 +95,7 @@ export class AppService {
       console.log("Token " + this.storage.get('token'));
     }
     
-    return this.http.get<Array<any>>(BASE_URL+'/api/public/download/getall',{headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+    return this.http.get<Array<any>>(BASE_URL+'/api/public/download/get-all',{headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
     .pipe(
       map(response => {return response.body;})
     );
@@ -110,7 +116,7 @@ export class AppService {
     );
   }
 
-  copyFromRepo(id) {
+  copyFromRepo(id){
     if(!this.storage.get("token")) {
       console.log("no auth header is set")
       return null;
@@ -118,10 +124,34 @@ export class AppService {
       console.log("Token " + this.storage.get('token'));
     }
 
-    this.http.get(BASE_URL+"/api/public/repository/get?id="+id);
+    return this.http.get(BASE_URL+"/api/public/repository/get?id="+id, {headers:request_headers.append("Authorization",this.storage.get("token")), reportProgress: true, responseType: 'blob'});
   }
 
 
+
+  getFilesFromRepo(repoName:string, page:number) : Observable<any> {
+    if(!this.storage.get("token")) {
+      console.log("no auth header is set")
+      return null;
+    } else {
+      console.log("Token " + this.storage.get('token'));
+    }
+
+    let url = BASE_URL+"/api/public/repository/"+repoName+"?page="+page;
+
+    return this.http.get<Array<any>>(url, {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+              .pipe(
+                map(response => {return response.body;})
+              );
+  }
+
+  setRepoName(repo: string) : void {
+    this.storage.set("repo", repo);
+  }
+
+  getRepoName(): string {
+    return this.storage.get("repo");
+  }
 
 
 }
