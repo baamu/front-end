@@ -1,19 +1,16 @@
 <div>
-<form  class="form-inline md-form form-sm active-purple-2 mt-2" [formGroup]="form" (ngSubmit) = "formSubmit()">
 
-  <div class="md-form active-cyan-2 mb-3 container" >
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8"> <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="download url" aria-label="Download URL" formControlName="url">
-      </div>
-      <div class="col-md-2"></div>
+
+  <form>
+    <div>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="URL" >
+      </mat-form-field>
+      <button mat-button class="btn_add" type="submit" >Add</button>
+    
     </div>
-   
-  </div>
-
-</form>
-
-
+  </form>
+  
   <div class="imgcontainer">
     <img src="assets/images/logo_gray_white_nose.png" alt="wolf" class="wolf">
   </div>
@@ -26,82 +23,62 @@
       <div class="carousel-item active">
         <div class="row">
         <div class="col-md-3">
-          <mat-card class="example-card">
+          <mat-card class="card_space " style="margin: 1em;" >
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Decendent of a sun</mat-card-title>
-              <mat-card-subtitle>Love story </mat-card-subtitle>
+              <div mat-card-avatar></div>
+              <!--mat-card-title>Decendent of a sun</mat-card-title-->
             </mat-card-header>
             <a href="https://youtu.be/3Fyrt0qByOQ" target="_blank"><img mat-card-image src="assets/images/dds.jpg"  width="500px"  height="250px" alt="Photo of a Decendent of a sun"></a>
             <mat-card-content>
 
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
             </mat-card-content>
-            <!--mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </!--mat-card-actions-->
           </mat-card>
 
         </div>
 
         <div class="col-md-3">
-          <mat-card class="example-card">
+          <mat-card class="card_space "  style="margin: 1em;">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>BlackPink</mat-card-title>
-              <mat-card-subtitle>Korean Singer group </mat-card-subtitle>
+              <div mat-card-avatar></div>
+              <!--mat-card-title>BlackPink</mat-card-title-->
             </mat-card-header>
-            <a href="https://youtu.be/wwuZtpS8FNI" target="_blank"><img mat-card-image src="assets/images/black_pink.jpg" alt="Photo of a blackpink"></a>
+            <a href="https://youtu.be/wwuZtpS8FNI" target="_blank"><img mat-card-image src="assets/images/black_pink.jpg"  width="500px"  height="250px"  alt="Photo of a blackpink"></a>
             <mat-card-content>
 
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
             </mat-card-content>
-            <!--mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </!--mat-card-actions-->
           </mat-card>
 
         </div>
 
         
           <div class="col-md-3">
-            <mat-card class="example-card">
+            <mat-card class="card_space "  style="margin: 1em;">
               <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Pirates of the carribbean</mat-card-title>
-                <mat-card-subtitle>Film</mat-card-subtitle>
+                <div mat-card-avatar></div>
+                <!--mat-card-title>Pirates of the carribbean</mat-card-title-->
               </mat-card-header>
-              <a href="https://youtu.be/27mB8verLK8" target="_blank"><img mat-card-image src="assets/images/pirates.jpg" alt="Photo of a pirates"></a>
+              <a href="https://youtu.be/27mB8verLK8" target="_blank"><img mat-card-image src="assets/images/pirates.jpg"  width="500px"  height="250px"  alt="Photo of a pirates"></a>
               <mat-card-content>
            
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small>Last updated 3 mins ago</small></p>
               </mat-card-content>
-              <!--mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-              </!--mat-card-actions-->
             </mat-card>
 
           </div>
   
           <div class="col-md-3">
-            <mat-card class="example-card">
+            <mat-card class="card_space "  style="margin: 1em;">
               <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Goblin</mat-card-title>
-                <mat-card-subtitle>The lonely and great god</mat-card-subtitle>
+                <div mat-card-avatar></div>
+                <!--mat-card-title>Goblin</mat-card-title-->
               </mat-card-header>
-              <a href="https://youtu.be/S94ukM8C17A" target="_blank"><img mat-card-image src="assets/images/goblin.jpg" alt="Photo of a goblin"></a>
+              <a href="https://youtu.be/S94ukM8C17A" target="_blank"><img mat-card-image src="assets/images/goblin.jpg"  width="500px"  height="250px"  alt="Photo of a goblin"></a>
               <mat-card-content>
 
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small>Last updated 3 mins ago</small></p>
               </mat-card-content>
-              <!--mat-card-actions>
-                <button mat-button>LIKE</button>
-                <button mat-button>SHARE</button>
-              </!--mat-card-actions-->
             </mat-card>
 
           </div>
@@ -118,62 +95,54 @@
       <div class="carousel-item">
         <div class="row">
         <div class="col-md-3">
-          <mat-card class="example-card">
+          <mat-card class="card_space "  style="margin: 1em;">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Teen Wolf</mat-card-title>
-              <mat-card-subtitle>American supernatural teen drama </mat-card-subtitle>
+              <div mat-card-avatar></div>
+              <!--mat-card-title>Teen Wolf</mat-card-title-->
             </mat-card-header>
-            <a href="https://youtu.be/sdgltcCbbmU" target="_blank"><img mat-card-image src="assets/images/teenwolf.jpg" alt="Photo of a teenwolf"></a>
+            <a href="https://youtu.be/sdgltcCbbmU" target="_blank"><img mat-card-image src="assets/images/teenwolf.jpg"  width="500px"  height="250px"  alt="Photo of a teenwolf"></a>
             <mat-card-content>
             
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </mat-card-content>
-            <!--mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </!--mat-card-actions-->
-          </mat-card>
-        </div>
-
-        <div class="col-md-3">
-          <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Legend of the blue sea</mat-card-title>
-              <mat-card-subtitle>Classic Joseon legend from Korea </mat-card-subtitle>
-            </mat-card-header>
-            <a href="https://youtu.be/G_jt3EwBMwU" target="_blank"><img mat-card-image src="assets/images/lobs.jpg" alt="Photo of a Legend of blie sea"></a>
-            <mat-card-content>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
             </mat-card-content>
           </mat-card>
         </div>
 
         <div class="col-md-3">
-          <mat-card class="example-card">
+          <mat-card class="card_space "  style="margin: 1em;">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Merlin</mat-card-title>
-              <mat-card-subtitle>Merlin </mat-card-subtitle>
+              <div mat-card-avatar></div>
+              <!--mat-card-title>Legend of the blue sea</mat-card-title-->
             </mat-card-header>
-            <a href="https://youtu.be/01rxgwVmxx0" target="_blank"><img mat-card-image src="assets/images/merlin.jpg" alt="Photo of a merlin"></a>
+            <a href="https://youtu.be/G_jt3EwBMwU" target="_blank"><img mat-card-image src="assets/images/lobs.jpg"  width="500px"  height="250px"  alt="Photo of a Legend of blie sea"></a>
             <mat-card-content>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-md-3">
+          <mat-card class="card_space "  style="margin: 1em;">
+            <mat-card-header>
+              <div mat-card-avatar></div>
+              <!--mat-card-title>Merlin</mat-card-title-->
+            </mat-card-header>
+            <a href="https://youtu.be/01rxgwVmxx0" target="_blank"><img mat-card-image src="assets/images/merlin.jpg"  width="500px"  height="250px"  alt="Photo of a merlin"></a>
+            <mat-card-content>
+              <p class="card-text"><small>Last updated 4 mins ago</small></p>
             </mat-card-content>
           </mat-card>
         </div>
 
         <div class="col-md-3x">
-          <mat-card class="example-card">
+          <mat-card class="card_space "  style="margin: 1em;">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shinee</mat-card-title>
-              <mat-card-subtitle>Singing group </mat-card-subtitle>
+              <div mat-card-avatar></div>
+              <!--mat-card-title>Shinee</mat-card-title-->
             </mat-card-header>
-            <a href="https://youtu.be/skZxb5sBoiU" target="_blank"><img mat-card-image src="assets/images/shinee.jpg" alt="Photo of a shinee"></a>
+            <a href="https://youtu.be/skZxb5sBoiU" target="_blank"><img mat-card-image src="assets/images/shinee.jpg"  width="500px"  height="250px"  alt="Photo of a shinee"></a>
             <mat-card-content>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small>Last updated 6 mins ago</small></p>
             </mat-card-content>
 
           </mat-card>

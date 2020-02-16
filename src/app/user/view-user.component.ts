@@ -1,14 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { AppService } from '../app.service';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { map } from 'rxjs/operators';
 
-export interface Download {
+export class Download {
   id: string;
-  userId: number;
-  url: number;
-  downloadedSize: string;
-  fileSize:string;
+  fileName: string;
+  downloadedSize: number;
+  fileSize:number;
   completed:string;
+  image;
 }
 
 @Component({
@@ -19,16 +20,40 @@ export class ViewUserComponent implements OnInit{
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  
+  // trendings: Download[];
   ngOnInit(): void {
 
-    this.service.getOnGoingDownloads().subscribe(response => {
+    this.service.getOnGoingDownloads().pipe(
+      map(Response =>{
+        let data: Download []= new Array();
+        Response.forEach(element => {
+          console.log("Element : ", element)
+          let d: Download = new Download ();
+          d.id= element.id;
+          d.fileName = element.fileName;
+          d.fileSize = element.fileSize;
+          d.completed = element.completed;
+          d.image = "/assests/images/remove.png";
+          data.push(d)          
+        }); 
+        return data;
+      })
+    ).subscribe(response => {
       this.dataSource.data=response;
-    })
+      // this.trendings = response;
+    });
+
+
 
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
  
+  }
+  removeDownload(id) {
+    console.log(id);
+    this.service.removeDownload(id).subscribe((response => {
+      alert(response)
+    }));
   }
 
   applyFilter(filterValue: string) {
@@ -39,8 +64,8 @@ export class ViewUserComponent implements OnInit{
     }
   }
 
-  displayedColumns: string[] = ['url', 'downloadedSize', 'fileSize', 'completed'];
-  dataSource : MatTableDataSource<Download[]> = new MatTableDataSource();
+  displayedColumns: string[] = ['fileName', 'fileSize', 'downloadedSize', 'completed', 'image'];
+  dataSource : MatTableDataSource<Download> = new MatTableDataSource();
 
   constructor(private service : AppService) {
     

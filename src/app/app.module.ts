@@ -18,7 +18,7 @@ import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatCardModule, MatButtonModule} from '@angular/material';
+import {MatNativeDateModule, MatCardModule, MatButtonModule, MatProgressSpinnerModule} from '@angular/material';
  
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,6 +29,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StorageServiceModule } from 'angular-webstorage-service';
 import { AppService } from './app.service';
 
+
+//const materialComponents = [MatProgressSpinnerModule]
 
 
 
@@ -62,7 +64,11 @@ import { AppService } from './app.service';
     FlexLayoutModule,
     StorageServiceModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    
+
 
 
   ],

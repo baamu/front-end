@@ -7,9 +7,10 @@ html > body {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-span{
-    padding-right: 1rem;
+.span{
+    padding: left;
 }
+
 .mat-toolbar.mat-primary{
     background: #1d1033; 
     color: #fff;
@@ -26,4 +27,10 @@ span{
     font-family: 'Odibee Sans', cursive;
 }
 
-  
+#logout {
+    margin-right: 20px;
+}
+
+#logout .navbar-nav {
+    margin-right: 20px;
+}

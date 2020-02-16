@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder, private appService: AppService, private _router: Router) {
+  constructor(public fb: FormBuilder, private appService: AppService, private _router: Router, private appComp: AppComponent) {
     
   }
   
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     this.appService.login(email, password)
       .subscribe(response => {
           console.log(response)
+          this.appComp.setLogged();
           this._router.navigate(["/add"]);
         },
         error => {

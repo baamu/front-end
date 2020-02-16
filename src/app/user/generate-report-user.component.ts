@@ -35,6 +35,10 @@ export class GenerateReportUserComponent implements OnInit {
     }
   }
 
+  //show
+
+  //hide
+
   ngOnInit() {
     let repo = this.service.getRepoName();
 
@@ -63,11 +67,15 @@ export class GenerateReportUserComponent implements OnInit {
 
 
   copyFile(id, fileName) {
+
+    //call show
     console.log(id);
     this.service.copyFromRepo(id).subscribe((data: Blob) => {
       this.downloadFile(data, fileName);
 
     });
+
+    //call hide
   }
 
   async downloadFile(data: Blob, fileName:string) {

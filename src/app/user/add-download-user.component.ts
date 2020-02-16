@@ -9,6 +9,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./add-download-user.component.css']
 })
 export class AddDownloadUserComponent implements OnInit {
+ //Trendings: Download[];
 
   form: FormGroup;
 
@@ -18,6 +19,27 @@ export class AddDownloadUserComponent implements OnInit {
     this.form = this.fb.group({
       url : ['']
     })
+
+    
+    /*this.service.getTrendings().pipe(
+      map(Response =>{
+        let data: Trendings []= new Array();
+        Response.forEach(element => {
+          console.log("Element : ", element)
+          let d: Trendings = new Trendings ();
+          d.id= element.id;
+          d.fileName = element.fileName;
+          d.fileSize = element.fileSize;
+          d.completed = element.completed;
+          d.image = "/assests/images/remove.png";
+          data.push(d)          
+        }); 
+        return data;
+      })
+    ).subscribe(response => {
+      //this.dataSource.data=response;
+       this.Trendings = response;
+    });*/
   }
 
   formSubmit() {

@@ -8,10 +8,19 @@ import { AppService } from '../app.service';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-
+  // minDate: Date;
+  maxDate: Date;
+  hide = true;
+ 
   form: FormGroup;
 
-  constructor(public fb: FormBuilder, private appService: AppService) { }
+  constructor(public fb: FormBuilder, private appService: AppService) { 
+      // Set the minimum to January 1st 20 years in the past and December 31st a year in the future.
+      const currentYear = new Date().getFullYear();
+      // this.minDate = new Date(currentYear - 50, 0, 1);
+      this.maxDate = new Date(currentYear -12, 11, 31);
+
+  }
 
   formSubmit(){
   

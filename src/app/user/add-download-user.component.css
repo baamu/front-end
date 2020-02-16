@@ -2,34 +2,8 @@
   
 /* Bordered form */
 form {
-    border: 3px solid #f1f1f1;
+    border: #f7f2f2;
   }
-  
-  /* Full-width inputs */
-  /*input[type=text] {
-    width: 98%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Set a style for all buttons */
-  /*button {
-    background-color: rgb(31, 99, 161);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 2%;
-  }
-  
-  /* Add a hover effect for buttons */
-  /*button:hover {
-    opacity: 0.8;
-  }*/
   
 
   /* Center the  image inside this container */
@@ -38,7 +12,7 @@ form {
     margin: 24px 0 12px 0;
   }
   
-  /*  image */
+  /*  logo_image */
   img.wolf {
     width: 10%;
     border-radius: 50%;
@@ -70,10 +44,36 @@ form {
   padding-left: 0;
 }
 
-.example-card {
+.card_space {
   max-width: 250px;
 }
 
+.md-card-image{min-height: 0;width:auto;}
+
+.mat-form-field{
+  font-size: 18px;
+  font-weight: bold;
+  border-top: black;
+  width: 75%;
+  padding: 3% 1%;
+
+}
+.btn_add{
+  padding: 0% 10%;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  min-height: 36px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  box-shadow: 0px 2px 0 rgba(0,0,0,0.26);
+  color: #ffffff;
+  background-color: #0a4969;
+
+}
 
 
 
