@@ -6,8 +6,8 @@ export interface DownloadHistory {
   id:number;
   name:string;
   url:string;
-  added_date:string;
-  downloaded_date:string;
+  addedDate:string;
+  downloadedDate:string;
   file_size:number;
 }
 
@@ -21,15 +21,16 @@ export class HistoryUserComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  dataSource : MatTableDataSource<DownloadHistory[]> = new MatTableDataSource();
-  displayedColumns: string[] = ['name', 'url', 'added_date', 'downloaded_date','file_size'];
+  dataSource : MatTableDataSource<DownloadHistory> = new MatTableDataSource();
+  displayedColumns: string[] = ['id', 'name', 'downloadedDate','file_size'];
 
   constructor(private service : AppService) {
     
   }
 
   ngOnInit() {
-    this.service.getOnGoingDownloads().subscribe(response => {
+    this.service.getDownloadHistory().subscribe(response => {
+      console.log(response);
       this.dataSource.data=response;
     })
 

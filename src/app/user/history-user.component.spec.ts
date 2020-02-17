@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoryUserComponent } from './history-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '../material/material.module';
+import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { AppService } from '../app.service';
 
 describe('HistoryUserComponent', () => {
   let component: HistoryUserComponent;

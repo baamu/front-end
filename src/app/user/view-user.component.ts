@@ -23,6 +23,14 @@ export class ViewUserComponent implements OnInit{
   // trendings: Download[];
   ngOnInit(): void {
 
+    this.loadData()
+
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+ 
+  }
+
+  loadData() {
     this.service.getOnGoingDownloads().pipe(
       map(Response =>{
         let data: Download []= new Array();
@@ -33,7 +41,7 @@ export class ViewUserComponent implements OnInit{
           d.fileName = element.fileName;
           d.fileSize = element.fileSize;
           d.completed = element.completed;
-          d.image = "/assests/images/remove.png";
+          // d.image = "/assests/images/remove.png";
           data.push(d)          
         }); 
         return data;
@@ -42,17 +50,13 @@ export class ViewUserComponent implements OnInit{
       this.dataSource.data=response;
       // this.trendings = response;
     });
-
-
-
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
- 
   }
+
   removeDownload(id) {
     console.log(id);
-    this.service.removeDownload(id).subscribe((response => {
-      alert(response)
+    this.service.removeDownload(id).subscribe(((response:JSON) => {
+      alert(response);
+      this.loadData();
     }));
   }
 

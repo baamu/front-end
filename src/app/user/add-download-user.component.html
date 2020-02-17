@@ -1,12 +1,12 @@
 <div>
 
 
-  <form>
+  <form [formGroup]="form" (ngSubmit) = "formSubmit()" id="form">
     <div>
-      <mat-form-field>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="URL" >
+      <mat-form-field id="form-field">
+        <input matInput placeholder="Download URL" formControlName="url">
       </mat-form-field>
-      <button mat-button class="btn_add" type="submit" >Add</button>
+      <button mat-button class="btn_add" type="submit" >Download</button>
     
     </div>
   </form>

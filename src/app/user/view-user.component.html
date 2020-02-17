@@ -35,7 +35,7 @@
 
     <ng-container matColumnDef="image">
       <th mat-header-cell *matHeaderCellDef>  </th>
-      <td mat-cell download-cell *matCellDef="let element" (click)="removeDownload(element.id)"> <img [src]="element.image"> </td>
+      <td mat-cell download-cell *matCellDef="let element" > <mat-icon id="del-icon" (click)="removeDownload(element.id)">delete</mat-icon> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -11,8 +11,8 @@ let request_headers = new HttpHeaders(
 );
 
 
-const BASE_URL = "http://3.90.223.43:8080";
-// const BASE_URL = "http://10.22.166.122:8080";
+//const BASE_URL = "http://3.90.223.43:8080";
+const BASE_URL = "http://10.22.166.122:8080";
 
 
 
@@ -98,7 +98,7 @@ export class AppService {
       "id" : id
     }
 
-    return this.http.get(BASE_URL+'/api/public/download/remove',  {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
+    return this.http.get(BASE_URL+'/api/public/download/remove?id='+id,  {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
     .pipe(
       map(response => {return response.body})
     )
