@@ -29,6 +29,7 @@ html > body {
 
 #logout {
     margin-right: 20px;
+    cursor: pointer;
 }
 
 #logout .navbar-nav {

@@ -17,17 +17,17 @@ export class LoginComponent implements OnInit {
     
   }
   
+  //login Function
   formSubmit(){
   
     var email:string = this.form.get('email').value;
     var password:string = this.form.get('password').value;
 
-    this.appService.setRepoName("other");
-
     this.appService.login(email, password)
       .subscribe(response => {
           console.log(response)
           this.appComp.setLogged();
+
           this._router.navigate(["/add"]);
         },
         error => {
@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.appService.setRepoName("other");
 
     this.form = this.fb.group({
       email: [''],

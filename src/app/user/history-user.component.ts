@@ -29,6 +29,7 @@ export class HistoryUserComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.service.getDownloadHistory().subscribe(response => {
       console.log(response);
       this.dataSource.data=response;

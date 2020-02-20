@@ -95,5 +95,11 @@ hr {
 }
 
 .abc{
-  width: 100px;
+  padding: 15px;
+  height: 40px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px;
 }

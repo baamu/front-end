@@ -11,11 +11,11 @@
           <input class="form-control" type="text" placeholder="Enter Name" formControlName="name" required pattern="^[A-Za-z][A-Za-z\'\.]+([\ A-Za-z][A-Za-z\']+)*">
 
           <label for="name"><b>User Name</b></label>
-          <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" required pattern="[A-Za-z0-9_]{1,15}">
+          <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" required pattern="[A-Za-z0-9_]{4,25}">
 
           
           <label for="dob"><b>Date Of Birth</b></label><br>
-          <input matInput style="width: 1020px;" [max]="maxDate" [matDatepicker]="picker"  placeholder="YYYY/MM/DD" formControlName="dob" required="true" class="xyz">
+          <input matInput style="width: 1020px;" [max]="maxDate" [matDatepicker]="picker" [ngModel] ="dt | date:'yyyy-MM-dd'" (ngModelChange)="dt = $event" placeholder="YYYY/MM/DD" formControlName="dob" required="true" class="xyz">
           <mat-datepicker-toggle style="margin-left: 30px;" matSuffix [for]="picker" class="date_width" ></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           
@@ -30,8 +30,8 @@
           <div class="row">
             <div class="col-11" >
               <input class="xyz" [type]="hide ? 'password' : 'text'" placeholder="Enter Password" formControlName="password" required pattern="(.){8,15}">
-
             </div>
+
             <div class="col-1">
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -41,19 +41,22 @@
 
  
           <br>
+          <label for="password-repeat"><b>Repeat Password</b></label>
 
-
-        <label for="password-repeat"><b>Repeat Password</b></label>
-        <input [type]="hide ? 'password' : 'text'" placeholder="Repeat Password" formControlName="repass" required pattern="(.){8,15}" class="abc">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
+        <div class="row">
+          <div class="col-11">
+            <input class="abc" [type]="hide ? 'password' : 'text'" placeholder="Repeat Password" formControlName="repass" required pattern="(.){8,15}" class="abc">
+          </div>
       
 
-         
+        <div class="col-1" mat-icon-button matSuffix [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           
-
-      
+            <mat-icon (click)="hide = !hide" >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+           
+        </div>
+      </div>
+        
+        
           <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
       
           <div class="clearfix">

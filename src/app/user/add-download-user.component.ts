@@ -37,7 +37,6 @@ export class AddDownloadUserComponent implements OnInit {
         return data;
       })
     ).subscribe(response => {
-      //this.dataSource.data=response;
        this.Trendings = response;
     });*/
   }

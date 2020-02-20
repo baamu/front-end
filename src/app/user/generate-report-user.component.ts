@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 export class RepoFile {
   id:string;
+  url;
   name;
   file_size:number;
   image;
@@ -22,6 +23,7 @@ export class GenerateReportUserComponent implements OnInit {
 
   displayedCols :string[] = ["id", "name", "size", "download"]
   dataSource : MatTableDataSource<RepoFile> = new MatTableDataSource();
+  isvisible: boolean= false;
 
   constructor(private service : AppService) {
     
@@ -35,9 +37,7 @@ export class GenerateReportUserComponent implements OnInit {
     }
   }
 
-  //show
 
-  //hide
 
   ngOnInit() {
     let repo = this.service.getRepoName();
@@ -51,6 +51,7 @@ export class GenerateReportUserComponent implements OnInit {
           d.id = element.id;
           d.name = element.name;
           d.file_size = element.file_size;
+          d.url = element.url;
           d.image = "/assets/images/download.png";
           data.push(d);
         });
@@ -69,20 +70,46 @@ export class GenerateReportUserComponent implements OnInit {
   copyFile(id, fileName) {
 
     //call show
+    var element = document.getElementById("progress");
+    element.style.display = "block";
+
     console.log(id);
     this.service.copyFromRepo(id).subscribe((data: Blob) => {
       this.downloadFile(data, fileName);
+      //call hide
+      element.style.display = "none";
+    });
+
+  
+  }
+
+  viewFile(id, url) {
+
+    // console.log(url)
+    this.service.copyFromRepo(id).subscribe((data: Blob) => {
+
+
+      let blob = new Blob([data], {type:data.type});
+      //creat a downladable object
+      var url = window.URL.createObjectURL(blob);
+
+      var anch = document.createElement("a");
+      anch.href = url;
+      anch.target = "_blank"
+      anch.click();
 
     });
 
-    //call hide
+
+  }
+
+  setVisible(val:boolean){
+    this.isvisible= val;
   }
 
   async downloadFile(data: Blob, fileName:string) {
     let blob = new Blob([data], {type:data.type});
       
-      // console.log("Type : ", data.type);
-      // console.log("Blob : ", blob);
 
       var down = window.URL.createObjectURL(blob);
       var link = document.createElement("a");
@@ -91,7 +118,8 @@ export class GenerateReportUserComponent implements OnInit {
       link.download = fileName;
       
       link.click();
-      // window.open(down);
+ 
   }
 
 }
+

@@ -30,10 +30,30 @@ export class SignInComponent implements OnInit {
     var dob:string = this.form.get('dob').value.replace(/-/g,"/");
     var nic:string = this.form.get('nic').value;
     var password:string = this.form.get('password').value;
-    
-
     var repass:string = this.form.get('repass').value;
 
+    if(repass != password) {
+      alert("Passwords does not match!");
+      return;
+    }
+
+    if(this.isBlank(email)) {
+      alert("Please fill the Email!");
+      return;
+    }
+    if(this.isBlank(dob)) {
+      alert("Please fill the Date of birth!");
+      return;
+    }
+    if(this.isBlank(nic)) {
+      alert("Please fill the NIC number!");
+      return;
+    }
+    if(this.isBlank(password)) {
+      alert("Please fill the Password!");
+      return;
+    }
+//call the register function that in appservice
     this.appService.register(email,name,username,nic,dob,password)
       .subscribe(response => {
           console.log(response)
@@ -50,6 +70,12 @@ export class SignInComponent implements OnInit {
       this.form.reset();
 
   }
+
+  isBlank(str) {
+    console.log("isBlank : ", str)
+    console.log("isBlank Length : ", str.Length)
+    return (!str || /^\s*$/.test(str));
+}
 
   ngOnInit() {
     this.form = this.fb.group({

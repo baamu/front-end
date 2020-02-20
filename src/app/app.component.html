@@ -25,7 +25,11 @@
 
                   <li align-right id="logout">  
                         <a class="nav-link" (click)="logout()" >Log Out <span class="sr-only">(current)</span></a>
-                  </li> 
+                  </li>
+                  
+                  <li >
+                        <a class="nav-link">{{this.storage.get("username")}}<span class="sr-only" id="username"></span></a>
+                  </li>
                  
             </ul>  
             

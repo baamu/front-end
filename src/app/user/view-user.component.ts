@@ -9,7 +9,6 @@ export class Download {
   downloadedSize: number;
   fileSize:number;
   completed:string;
-  image;
 }
 
 @Component({
@@ -41,14 +40,18 @@ export class ViewUserComponent implements OnInit{
           d.fileName = element.fileName;
           d.fileSize = element.fileSize;
           d.completed = element.completed;
-          // d.image = "/assests/images/remove.png";
+          // if(element.completed) {
+            // d.completed = "In progress";
+          // }else {
+            // d.completed = "Waiting to be downloaded";
+          // }
+
           data.push(d)          
         }); 
         return data;
       })
     ).subscribe(response => {
       this.dataSource.data=response;
-      // this.trendings = response;
     });
   }
 
@@ -69,6 +72,7 @@ export class ViewUserComponent implements OnInit{
   }
 
   displayedColumns: string[] = ['fileName', 'fileSize', 'downloadedSize', 'completed', 'image'];
+  //dataSource=download type data 
   dataSource : MatTableDataSource<Download> = new MatTableDataSource();
 
   constructor(private service : AppService) {

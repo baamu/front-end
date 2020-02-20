@@ -13,6 +13,7 @@ import { AppService } from './app.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AppComponent {
   title = 'Night Wolf';
   show: boolean= this.storage.get("token");
@@ -21,6 +22,7 @@ export class AppComponent {
     this.show = this.storage.get("token");
   }
 
+  //check show/hide nav bar
   setLogged() {
     this.show = this.storage.get("token");
   }

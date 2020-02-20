@@ -11,8 +11,8 @@ let request_headers = new HttpHeaders(
 );
 
 
-//const BASE_URL = "http://3.90.223.43:8080";
-const BASE_URL = "http://10.22.166.122:8080";
+const BASE_URL = "http://3.90.223.43:8080";
+//const BASE_URL = "http://10.22.166.122:8080";
 
 
 
@@ -23,7 +23,9 @@ export class AppService {
 
   constructor(private http : HttpClient, @Inject(SESSION_STORAGE) private storage: WebStorageService) { }
 
+
   register(email:string, name:string, username:string, nic:string, dob:string, password:string) {
+    //data that want to perticular user
     var user = {
       "email" : email,
       "name" : name,
@@ -35,13 +37,14 @@ export class AppService {
 
     return this.http.post(BASE_URL+'/api/public/user/register', user, {headers: request_headers, observe : "response"})
     .pipe(
+      //return response body (only text)
       map(response => {return response.body})
     );
 
   }
 
   login(email:string, password:string) {
-    
+    //payload
     var user = {
       "email" : email,
       "password" : password
@@ -53,7 +56,9 @@ export class AppService {
          if(respose.ok) {
            request_headers = request_headers.append("Authorization", respose.headers.get("Authorization"))
 
+           //store token in session storage for later use
            this.storage.set("token", respose.headers.get("Authorization"))
+           this.storage.set("username", email);
 
           //  console.log(this.storage.get('token'))
          } 
@@ -67,17 +72,20 @@ export class AppService {
 
     console.log(url)
     //cannot send a request if not logged in
+    //check token to findout if the user is logged
     if(!this.storage.get("token")) {
       console.log("no auth header is set")
       return null;
     } else {
       console.log("Token " + this.storage.get('token'));
     }
+    this.getOnGoingDownloads
 
     var payload = {
       "url" : url
     }
 
+    //call api addDownload function and return response
     return this.http.post(BASE_URL+'/api/public/download/add', payload, {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
     .pipe(
       map(response => {return response.body})
@@ -93,9 +101,6 @@ export class AppService {
       return null;
     } else {
       console.log("Token " + this.storage.get('token'));
-    }
-    var payload = {
-      "id" : id
     }
 
     return this.http.get(BASE_URL+'/api/public/download/remove?id='+id,  {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"})
@@ -174,6 +179,7 @@ export class AppService {
     return this.storage.get("repo");
   }
 
+  //logout
   logout():void {
     this.http.get(BASE_URL+'/logout',  {headers:request_headers.append("Authorization",this.storage.get("token")), observe:"response"});
     

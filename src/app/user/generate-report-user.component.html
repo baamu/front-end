@@ -1,6 +1,5 @@
 <h1>Other Repository</h1>
 
-
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
@@ -27,7 +26,11 @@
 
     <ng-container matColumnDef="download">
       <th mat-header-cell *matHeaderCellDef>  </th>
-      <td mat-cell download-cell *matCellDef="let element" (click)="copyFile(element.id, element.name)"> <img [src]="element.image"> </td>
+      <td mat-cell download-cell *matCellDef="let element">
+        <!-- <img [src]="element.image">  -->
+        <mat-icon (click)="copyFile(element.id, element.name)">save_alt</mat-icon>
+        <mat-icon (click)="viewFile(element.id, element.url)">visibility</mat-icon>
+      </td>
     </ng-container>
 
 
@@ -37,3 +40,11 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+<br>
+
+<div [style.display]="isVisible ? 'block' : 'none'" id="progress">
+  <label>Copying file from repository</label>
+  <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
+</div>
+  

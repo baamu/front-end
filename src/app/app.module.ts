@@ -18,7 +18,7 @@ import { LoginComponent } from './userLogin/login.component';
 import { SignInComponent } from './userSignIn/sign-in.component';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule, MatCardModule, MatButtonModule, MatProgressSpinnerModule} from '@angular/material';
+import {MatNativeDateModule, MatCardModule, MatButtonModule, MatProgressBarModule} from '@angular/material';
  
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -66,7 +66,7 @@ import { AppService } from './app.service';
     MatCardModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
+    MatProgressBarModule,
     
 
 
